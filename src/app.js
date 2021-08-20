@@ -14,7 +14,7 @@ app.set('view engine', 'ejs') //Informamos sobre el motor de plantillas(view eng
 
 
 //middlewares
-app.use(morgan('dev'));//Morgan es un middleware , se ejecutará antes de llegar a las rutas, como todos los middlewares. Morgan se utiliza para registrar los detalles de la solicitud (ejemplo -> GET / 404 9.593 ms - 139 => la solicitud ha devuelto un 404; ha tardado 9.593 ms y ha tenido un peso de 139 bytes)
+app.use(morgan('dev'));//Morgan es un middleware, como todos los middlewares, se ejecutará antes de llegar a las rutas. Morgan se utiliza para registrar los detalles de la solicitud (ejemplo -> GET / 404 9.593 ms - 139 => la solicitud ha devuelto un 404; ha tardado 9.593 ms y ha tenido un peso de 139 bytes)
 
 app.use(express.urlencoded({extended:false})); //Gestionar las peticiones post del protocolo http. Este método se encarga de entender, por ejemplo, los datos que nos envían de un formulario html,para entender el formato al almacenar en la BBDD.
 
