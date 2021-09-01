@@ -1,6 +1,9 @@
+require('dotenv').config()  // Trata los archivos .env que este en /root como variables globales.
 const path = require ('path'); //Este módulo nos ayuda con las rutas de los archivos
 const express = require ('express');
 const morgan = require('morgan');
+const mongoose = require('../database/database'); //Requerimos el archivo de la BBDD
+
 const app = express();
 
 
@@ -21,7 +24,7 @@ app.use(express.urlencoded({extended:false})); //Gestionar las peticiones post d
 //routes
 app.use('/', indexRoutes); //Cada vez que un usuario entre a la ruta inicial, utilizará estas rutas(definidas en /routes/index)
 
-//starting the server
-app.listen(app.get('port'), ()=> { //El número de puerto es la variable 'port'
-    console.log(`Server on port ${app.get('port')}`);
-});
+// TODO: No tendriamos que empezar a escuchar en el puerto 3000 hasta que no nos hemos conectado a la base de datos.
+mongoose.connect(function(){
+       app.listen(3000);
+    });

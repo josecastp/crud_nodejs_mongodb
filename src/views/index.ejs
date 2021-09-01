@@ -1,0 +1,45 @@
+<%- include("partials/_header") %>
+
+
+    <div class="container">
+        <div class="row"> <!-- Filas -->
+            <!-- FORM -->
+            <div class="col-md-5"> <!-- Columna de 5 -->
+                <div class="card"> <!-- Targeta- es un cuadrado blanco -->
+                     <div class="card-body"><!-- contenido de la tarjeta(formulario) -->
+                        <form action="/add" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="title" placeholder="Insert a Title"  class="form-control"> <!-- class="form-control" es una clase de bootstrap -->
+                            </div>
+                            <div class="form-group">
+                                <textarea name="description" cols="80" class="form-control" placeholder="Insert a Description"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                Add
+                            </button>
+                        </form>
+                     </div>
+                </div>
+            </div>
+            <!-- LIST -->
+            <div class="col-md-7"> <!-- Columna de 7 -->
+                <table class="table table-bordered table-hover">
+                    <thead> <!-- cabececera -->
+                        <tr><!-- fila -->
+                            <th>Nº</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Operation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <%- include("partials/_footer") %>
+
+ 
