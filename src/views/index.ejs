@@ -1,6 +1,5 @@
 <%- include("partials/_header") %>
 
-
     <div class="container">
         <div class="row"> <!-- Filas -->
             <!-- FORM -->
@@ -24,7 +23,7 @@
             <!-- LIST -->
             <div class="col-md-7"> <!-- Columna de 7 -->
                 <table class="table table-bordered table-hover">
-                    <thead> <!-- cabececera -->
+                    <thead> <!-- cabececera en la tabla -->
                         <tr><!-- fila -->
                             <th>Nº</th>
                             <th>Title</th>
@@ -33,7 +32,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% for(var i=0; i < tasks.length; i++){ %> 
+                            <tr>
+                                <td><%= i +1 %> </td>
+                                <td><%= tasks[i].title %> </td>
+                                <td><%= tasks[i].description %> </td>
+                                <td>
+                                    <a href="/done/<%= tasks[i]._id %>" 
+                                        class="btn <%= tasks[i].status ? 'btn-success' : 'btn-dark'%> ">Done</a><!--  Cambia la clase dependidendo del estado true o false -->
+                                    <a href="/delete/<%= tasks[i]._id %> " class="btn btn-danger">Delete</a>
+                                    <a href="/edit/<%= tasks[i]._id %>" class="btn btn-info">Edit</a>
 
+                                </td>
+                            </tr>
+                        <% } %> 
                     </tbody>
                 </table>
             </div>
